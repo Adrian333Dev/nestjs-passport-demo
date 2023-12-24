@@ -1,4 +1,4 @@
-export interface ILoginPayload {
-  sub: number;
-  email: string;
-}
+// export interface ILoginPayload {
+//   sub: number;
+//   email: string;
+// }

@@ -10,19 +10,19 @@ export class UserService {
     return this.prismaService.user.findMany();
   }
 
-  findOneById(id: number) {
+  findOneById(id: string) {
     const user = this.prismaService.user.findUniqueOrThrow({ where: { id } });
     return user;
   }
 
-  update(id: number, updateUserDto: Prisma.UserUpdateInput) {
+  update(id: string, updateUserDto: Prisma.UserUpdateInput) {
     return this.prismaService.user.update({
       where: { id },
       data: updateUserDto,
     });
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return this.prismaService.user.delete({ where: { id } });
   }
 }

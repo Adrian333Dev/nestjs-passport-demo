@@ -3,8 +3,6 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
-import { ILoginPayload } from '../interfaces/login-payload.interface';
-
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private readonly config: ConfigService) {
@@ -15,7 +13,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  validate(payload: ILoginPayload): { id: number; email: string } {
+  validate(payload: any): { id: number; email: string } {
     return { id: payload.sub, email: payload.email };
   }
 }
